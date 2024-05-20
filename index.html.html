@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Animación CSS</title>
+    <link rel="stylesheet" href="animacion.css"> 
+</head>
+<body>
+    <div class="contenedor">
+        <div class="pacman"><img class="pac" src="pacman.png" alt="img"></div> 
+        <div class="cua uno"></div> 
+        <div class="cua dos"></div>
+        <div class="cua tre"></div> 
+
+        <div class="confan"> 
+            <div class="fan ro"><img src="fanro.png" alt="img"></div>
+            <div class="fan az"><img src="fanaz.png" alt="img"></div>
+            <div class="fan rs"><img src="fanrs.png" alt="img"></div> 
+            <div class="fan am"><img src="fanam.png" alt="img"></div> 
+        </div>
+    
+        <script> /*JavaScript con la funcion de hacer infinitas al conjunto de animaciones*/
+            function recargar () { /*Funcion JavaScript para recargar la pagina*/
+            window.location.href = window.location.href; 
+            }
+            setTimeout(recargar, 7000 ); /*metodo JavaScript para llamar la funcion recargar luego de 7 segundos*/
+        </script>
+    </div>
+</body>
+</html>
