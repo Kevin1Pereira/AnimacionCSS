@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black; /*fondo del navegador negro para que a la hora que entra el contenedor no se vea distorcionado el fondo*/
+    overflow: hidden; /*Evita que se vea el scroll */
+}
+
+.contenedor{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center; /*Centrado de todos los elementos*/
+    justify-content: center; /*Centrado de todos los elementos*/
+    gap: 70px;
+    animation-name: aparecer;  
+    animation-duration: 3s;
+}
+
+.confan{ /*Alineamiento del contenedor de los 4 fantasmas*/
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.cua{ /*Div's que se convierten en puntos blancos*/
+    width: 30px;
+    height: 30px;
+    animation-name: puntos; 
+    animation-duration: 2s;
+    animation-delay: 3s;
+} 
+
+.pacman{ /*Definir tiempo/delay y duracion de la animacion accion en el div que contiene a pacman*/
+    animation-name: accion;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-delay: 3s;
+    animation-fill-mode: forwards; /*Linea de codigo para que la animacion no vuelva a su posicion inicial*/
+}
+
+.uno{ /*Definir tiempo/delay y duracion de la animacion puntos en el primero de estos*/
+    animation-name: puntos;
+    animation-duration: 1s;
+    animation-delay: 3s;  
+}
+
+.dos{ /*Definir tiempo/delay y duracion de la animacion puntos en el segundo de estos*/
+    animation-name: puntos;
+    animation-duration: 1.5s;
+    animation-delay: 3s;  
+}
+
+.tre{ /*Definir tiempo/delay y duracion de la animacion puntos en el tercero de estos*/
+    animation-name: puntos;
+    animation-duration: 2.3s;
+    animation-delay: 3s;  
+}
+
+.ro{ /*Definir tiempo/delay y duracion de la animacion fanDes en el fantasma rojo*/
+    animation-name: fanDes;
+    animation-duration: 0.4s;
+    animation-delay: 4.5s;
+    animation-fill-mode: forwards; 
+}
+
+.az{ /*Definir tiempo/delay y duracion de la animacion fanDes en el fantasma azul*/
+    animation-name: fanDes;
+    animation-duration: 0.4s;
+    animation-delay: 5.1s;
+    animation-fill-mode: forwards; 
+}
+
+.rs{ /*Definir tiempo/delay y duracion de la animacion fanDes en el fantasma rosa*/
+    animation-name: fanDes;
+    animation-duration: 0.4s;
+    animation-delay: 5.8s;
+    animation-fill-mode: forwards; 
+}
+
+.am{ /*Definir tiempo/delay y duracion de la animacion fanDes en el fantasma amarillo*/
+    animation-name: fanDes;
+    animation-duration: 0.4s;
+    animation-delay: 6.4s;
+    animation-fill-mode: forwards; 
+}
+
+img{ /*Definir width y height de todas las imagenes html para tener una armonia de tamaños*/
+    width: 150px;
+    height: 150px;
+}	
+
+@keyframes aparecer { /*animacion para que el pacman y los fantasmas (el contenedor) aparezcan desde fuera de cuadro antes de iniciar dando una sensacion de pacman siendo perseguido por los fantasmas*/
+    from {  /*inicio fuera de cuadro*/
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to { /*fin en cuadro*/
+      margin-left: 0%;
+      width: 100%;
+    }
+}
+
+@keyframes accion{ /*Animacion que mueve a pacman de izquierda a derecha*/
+    5%{ /*Primer punto en 5% para darle vuelta 180 en el ejeY de manera suave y no brusca como lo seria con 0%*/
+        transform: rotateY(180deg);
+    }
+    98%{ /*Punto final al 98% para poder hacer que pacman desaparezca*/
+        transform: translateX(1250px) rotateY(180deg) rotateX(0deg);
+    }
+    100%{ /*linea para que pacman desaparesca*/
+        transform: rotateZ(360deg) rotateX(90deg) translateX(1000px); 
+    }   
+}
+
+@keyframes puntos{ /*Animacion que hace que los puntos que pacman se come en el juego aparezcan y desaparezcan al momento de ser comidos por este*/
+    0%{
+        background-color: white;
+    }
+    100%{
+        background-color: black;
+    }
+}
+
+@keyframes fanDes{ /*Linea de codigo que hace desaparecer a los fantasmas al momento de ser comidos por pacman*/
+    100%{
+        transform: rotateZ(360deg) rotateX(90deg);
+    }
+}
